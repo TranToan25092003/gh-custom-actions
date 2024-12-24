@@ -84,5 +84,7 @@ jobs:
   information:
     runs-on: ubuntu-latest
     steps:
+      - name: Get code
+        uses: actions/checkout@v3
       - name: use custom action
-        uses: ./.github/actions/deploy-s3-js/action.yml
+        uses: ./.github/actions/deploy-s3-js
