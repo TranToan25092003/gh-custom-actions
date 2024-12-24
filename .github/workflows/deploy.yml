@@ -10,9 +10,12 @@ jobs:
       - name: Get code
         uses: actions/checkout@v3
       - name: Install & Cache dependencies
+        id: cached
         uses: ./.github/actions/cache-deps
         with:
           caching: "false"
+      - name: Is cache hit?
+        run: echo "Cache hit is ${{steps.cached.outputs.cache-hit}}"
       - name: Lint code
         run: npm run lint
   test:

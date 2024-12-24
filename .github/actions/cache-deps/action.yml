@@ -1,10 +1,17 @@
 name: cached deps
 description: Get & Cache dependencies to speed up workflows
+
 inputs:
   caching:
     description: " cache or not"
     required: false
     default: "true"
+
+outputs:
+  cache-hit:
+  description: "Whether the cache was a hit or not"
+  value: ${{ steps.install.outputs.cache-hit}}
+
 runs:
   using: "composite" # Type of action
   steps:
@@ -15,7 +22,11 @@ runs:
       with:
         path: node_modules
         key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
+
     - name: Install dependencies
+      id: install
       if: steps.cache.outputs.cache-hit != 'true' || inputs.caching != 'true'
-      run: npm ci
+      run: |
+        npm ci
+        echo 'cache-hit=${{inputs.caching}}' >> $GITHUB_OUPUT
       shell: bash # Use bash shell
