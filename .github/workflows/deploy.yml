@@ -2,7 +2,7 @@ name: Deployment
 on:
   push:
     branches:
-      - main
+      - docker-action
 jobs:
   lint:
     runs-on: ubuntu-latest
