@@ -1,5 +1,17 @@
 name: "Deploy to s3 bucket"
 description: "Deploy the website to an S3 bucket"
+
+inputs:
+  bucket:
+    description: "the name of the se bucket"
+    required: true
+  bucket-region:
+    description: "the region of the s3 bucket"
+    required: fasle
+    default: "ap-southeast-1"
+  dist-folder:
+    description: "the folder to deploy"
+    required: true
 runs:
   using: "node16"
   main: "main.js"
