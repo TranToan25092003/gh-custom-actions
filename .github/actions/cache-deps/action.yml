@@ -9,8 +9,8 @@ inputs:
 
 outputs:
   cache-hit:
-  description: "Whether the cache was a hit or not"
-  value: ${{ steps.install.outputs.cache-hit}}
+    description: "Whether the cache was a hit or not"
+    value: ${{ steps.install.outputs.cache-hit}}
 
 runs:
   using: "composite" # Type of action
