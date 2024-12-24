@@ -14,7 +14,9 @@ const run = () => {
   const s3Uri = `s3://${bucket}`;
   exec.exec(`aws s3 sync ${distFolder} ${s3Uri} --region ${bucketRegion}`);
 
-  core.notice("wellcome blyat");
+  const webUrl = `http://${bucket}.s3-website-${bucketRegion}.amazonaws.com`;
+
+  core.setOutput("URL", webUrl);
 };
 
 run();
