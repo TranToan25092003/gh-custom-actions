@@ -2,7 +2,7 @@ name: Deployment
 on:
   push:
     branches:
-      - main
+      - js-action
 jobs:
   lint:
     runs-on: ubuntu-latest
@@ -80,3 +80,8 @@ jobs:
         run: ls
       - name: Deploy site
         run: echo "Deploying..."
+  information:
+    runs-on: ubuntu-latest
+    steps:
+      - name: use custom action
+        uses: ./.github/actions/deploy-s3-js
