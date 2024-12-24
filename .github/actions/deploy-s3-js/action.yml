@@ -1,0 +1,5 @@
+name: "Deploy to s3 bucket"
+description: "Deploy the website to an S3 bucket"
+runs:
+  using: "node16"
+  main: "main.js"
