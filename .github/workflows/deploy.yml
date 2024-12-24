@@ -85,4 +85,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: use custom action
-        uses: ./.github/actions/deploy-s3-js
+        uses: ./.github/actions/deploy-s3-js/action.yml
